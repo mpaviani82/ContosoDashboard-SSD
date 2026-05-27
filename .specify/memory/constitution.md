@@ -1,50 +1,49 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+Version change: none (initial creation) → 1.0.0
+Modified principles: none (new constitution)
+Added sections: Additional Constraints, Development Workflow
+Removed sections: none
+Templates requiring updates: ✅ .specify/templates/plan-template.md
+Follow-up TODOs: none
+-->
+
+# ContosoDashboard Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Training-First Clarity
+Every design, implementation, and artifact MUST be understandable by learners and maintainers. Training features MUST avoid production-only complexity and MUST document known simplifications, intentional gaps, and educational assumptions.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Spec-Driven Delivery
+All work MUST begin from a concrete `spec.md` artifact before implementation. Every feature change MUST trace back to a defined user story, acceptance criteria, or requirement in the spec.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Test-First Validation
+Behavioral tests MUST be defined before implementation. Each change MUST include unit or integration coverage for new behavior, or a documented exception approved during review.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Observability & Traceability
+Code and documentation MUST expose execution intent, success/failure conditions, and decision rationale. Logs, errors, telemetry, and architecture notes MUST support debugging and learning without hidden internal behavior.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Incremental Simplicity
+Deliver the smallest viable slice first. Features MUST be decomposed into independently testable, independently deployable increments; added complexity is only acceptable when it directly supports a validated user need.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Additional Constraints
+This project is a training-oriented application. Dependencies MUST be local-friendly, cloud integrations MUST be optional abstractions, and production-grade infrastructure may be deferred unless required for an explicit learning objective.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+Work MUST follow the repository's spec-driven workflow:
+- `spec.md` defines requirements, user stories, and acceptance criteria.
+- `plan.md` captures design decisions, architecture, and principle alignment.
+- `tasks.md` decomposes work into independently testable stories.
+- Compliance with the constitution MUST be re-verified at each phase using `/speckit.plan` and `/speckit.analyze`.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
-
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+This constitution is authoritative for planning, specification, and task generation in this repository.
+- Amendments require a documented change in `.specify/memory/constitution.md`.
+- Any principle change MUST be paired with an update to affected templates or guidance docs.
+- Versioning follows semantic versioning:
+  - MAJOR for principle redefinition or removal,
+  - MINOR for new principles or mandatory workflow changes,
+  - PATCH for clarifications and editorial updates.
+- Compliance reviews MUST occur before `/speckit.implement` and after `/speckit.plan` or `/speckit.tasks` changes.
+**Version**: 1.0.0 | **Ratified**: 2026-05-26 | **Last Amended**: 2026-05-26
